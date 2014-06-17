@@ -1,0 +1,143 @@
+body {
+/*	background-color:#FAFBFD;*/
+}
+.all-header {
+	width:1365px;
+	height:56px;
+	border-bottom: 5px solid #65B600;
+	/*border:1px solid red;*/
+}
+.all-logo {
+	margin:0px 80px 0px 200px ;
+	float:left;
+	/*border:1px solid red;*/
+}
+.all-query {
+	padding-top: 0 0 0 0px;
+	float:left;
+	/*border:1px solid blue;*/
+}
+
+.all-query .all-text  {
+	width:580px; 
+	height:38px;
+	border:2px solid #FFBA00;
+}
+.all-query .all-btn  {
+	width:70px; 
+	height:40px; 
+	color:white;
+	font-weight: bold;
+	border:2px solid #FFBA00;
+	margin-top: 5px;
+	margin-bottom:10px;
+	font-size: 15px; 
+	background-color:#FFBA00;
+	border-radius:5px;
+	/*-moz-border-radius:5px;
+	-webkit-border-radius:5px;*/
+}
+.all-header-right {
+	margin-top: 20px;
+	margin-right: 40px;
+	float:right;
+/*	border:1px solid red;*/
+}
+.all-header-right a {
+	color:#B3B3B4;
+}
+.all-header-right a:hover {
+	color:red;
+	margin-left: 200px;
+	border:1px solid red;
+}
+
+
+
+.cart-mid {
+	width:1000px;
+	padding:10px 10px 10px 10px;
+	margin-top: 70px;
+	margin-left: 170px;
+	/*border:1px solid red;*/
+}
+.cart-mid .cart-mid-my {
+	padding-bottom: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #CCCCCC;
+	/*border:1px solid red;*/
+}
+.cart-mid span {
+	color:#65B600;
+	font-size: 20px;
+
+}
+.cart-mid table {
+	border-bottom: 1px solid #DDDDDD;
+/*	border-color: #65B600;*/
+}
+.cart-mid table thead {
+	color:white;
+	font-weight: lighter;
+	background-color: #65B600;
+}  
+.cart-mid table tbody td img {
+	width:150px;
+	height:100px;
+}
+.cart-mid table tbody td .cart-mid-quantity {
+	width:40px;
+}
+
+.cart-mid .cart-mid-btn {
+	margin-top: 50px;
+}
+.cart-mid .cart-mid-btn a {
+	color:gray;
+	text-decoration: none;
+}
+.cart-mid .cart-mid-btn .cart-mid-allprice {
+	float:right;
+}
+
+
+.all-tail {
+	width:1250px;
+	float:left;
+	height:100px;
+	margin-top:40px; 
+	margin-left:50px; 
+	margin-right:15px; 
+	border-top: 2px solid #B3B3B4;
+	/*border:1px solid red;*/
+}
+.all-tail .all-tail-text {
+	width:510px;
+	height:100px;
+	font-size: 13px; 
+	margin-top:10px; 
+	margin-left:400px;
+	/*border:1px solid red;*/
+}
+.all-tail .all-tail-text .all-tail-text1 {
+	width:370px;
+	height:20px; 
+	margin-left:62px;
+	/*border:1px solid red;*/
+}
+.all-tail .all-tail-text .all-tail-text1 a {
+	color:#EE6911; 
+	margin-right:10px;
+}
+.all-tail .all-tail-text .all-tail-text2 {
+	width:510px;
+	height:20px; 
+	margin-top:10px;
+	/*border:1px solid red;*/
+}
+.all-tail .all-tail-text .all-tail-text2 a {
+	color:green; 
+	margin-right:10px;
+}

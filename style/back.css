@@ -1,0 +1,403 @@
+/*通用，不可变*/
+body {
+	background-color:#FAFBFD;  
+}
+.back-header {
+	width:1358px;
+	height:58px;
+	float: left;
+	background-color:#B1DB5F;
+	border:2px solid #A0C656;
+	border-top: 0px;
+}
+.back-logo {
+	margin:0px 10px 0px 200px ;
+	float:left;
+	/*border:1px solid red;*/
+}
+.back-header .back-header-title {
+	float:left;
+	margin-top: 13px;
+	/*border:1px solid blue;*/
+}
+.back-header .back-header-title span {
+	color:white;
+	font-size: 30px;
+}
+.back-header-right {
+	margin-top: 20px;
+	margin-right: 35px;
+	float:right;
+	/*border:1px solid red;*/
+}
+.back-header-right span {
+	color:gray;
+	font-size: 20px;
+}
+.back-header-right a {
+	color:white;
+	margin-left: 25px;
+	text-decoration: none;
+}
+.back-left {
+	width:200px;
+	height:615px;
+	float:left;
+	padding-left: 10px;
+	background-color:#B1DB5F;
+	border:2px solid #A7CF5A;
+	border-top: 0px;
+}
+.back-left .back-left-img {
+	padding-left: 40px;
+	/*border:1px solid red;*/
+}
+.back-left .back-left-img img {
+	width:100px;
+	height: 100px;
+	margin-top: 30px;
+}
+
+.back-left span {
+	margin-left: 30px;
+	margin-top: 10px;
+}
+.back-left .back-left-nav {
+	margin-top:30px;
+	/*border:1px solid red;*/
+}
+
+.back-left .back-left-nav ul {
+	padding:0px;
+	margin: 0px;
+	/*border:1px solid blue;*/
+}
+.back-left .back-left-nav li {
+	list-style: none;
+}
+
+.back-left .back-left-nav li .accordion-group .accordion-heading a {
+	color:#E47601;
+	font-size: 20px;
+	text-decoration: none;
+	margin-left: 40px;
+}
+.back-left .back-left-nav li .accordion-group .accordion-heading .orders-a {
+		margin-left: 55px;
+}
+.back-left .back-left-nav li .accordion-group .accordion-heading .goods-a {
+		margin-left: 55px;
+}
+.back-left .back-left-nav li .accordion-group .accordion-inner a {
+	color:gray;
+	margin-left: 45px;
+}
+.back-right {
+	width:1158px;
+	border:1px solid green;
+}
+
+
+/*可变*/
+
+
+/*back-customer*/
+
+.back-cus-right {
+	width:800px;
+	float:left;
+	margin-top:40px;
+	margin-left:60px;
+	/*border:1px solid red;*/
+}
+.back-cus-right table {
+	border-bottom: 1px solid #DDDDDD;
+	/*border-left: 1px solid #DDDDDD;
+	border-right: 1px solid #DDDDDD;*/
+}
+.back-cus-right table thead {
+	color:white;
+	font-weight: lighter;
+	background-color: #BCBCBC;
+}  
+
+
+/*back-admin*/
+
+.back-admin-right {
+	width:800px;
+	float:left;
+	margin-top:40px;
+	margin-left:60px;
+	/*border:1px solid red;*/
+}
+
+.back-admin-right table {
+	border-bottom: 1px solid #DDDDDD;
+	/*border-left: 1px solid #DDDDDD;
+	border-right: 1px solid #DDDDDD;*/
+}
+.back-admin-right table thead {
+	color:white;
+	font-weight: lighter;
+	background-color: #BCBCBC;
+}  
+.back-admin-right button {
+	margin-left: 20px;
+}
+.back-admin-right button a {
+	color:black;
+	text-decoration: none;
+}
+
+
+
+/*back-admin-new*/
+
+.back-admin-new-right {
+	width:800px;
+	padding:0px 10px 10px 10px;
+	float:left;
+	margin-top:40px;
+	margin-left:60px;
+	/*border:1px solid red;*/
+}
+.back-admin-new-right .admin-new-title {
+	height:29px;
+	padding-top: 3px;
+	background-color: #DEDEDE;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	/*border: 1px solid red;*/
+}
+.back-admin-new-right .admin-new-title span {
+	color:gray;
+	font-size: 20px;
+	margin-left: 5px;
+}
+.back-admin-new-right .admin-new-text {
+	padding:20px 0px 0px 200px;
+	border:1px solid #DEDEDE;
+}
+.back-admin-new-right .admin-new-text form {
+	/*border:1px solid blue;*/
+}
+.back-admin-new-right .admin-new-text form ul {
+	padding: 0px;
+	margin: 0px;
+}
+.back-admin-new-right .admin-new-text form li {
+	list-style: none;
+	line-height: 70px;
+	/*border:1px solid green;*/
+}
+
+
+
+/*back-orders*/
+
+.back-orders-right {
+	width:800px;
+	float:left;
+	margin-top:40px;
+	margin-left:60px;
+	/*border:1px solid red;*/	
+}
+.back-orders-right .orders-right-title {
+	height:28px;
+	padding-top: 4px;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-bottom: 20px;
+	background-color: #F5F5F5;
+	border-radius: 5px;
+	/*border: 1px solid red;*/
+}
+.back-orders-right .orders-right-title span {
+	color:gray;
+	
+	font-size: 20px;
+	margin-left: 5px;
+}
+.back-orders-right table {
+	border-bottom: 1px solid #DDDDDD;
+	/*border-left: 1px solid #DDDDDD;
+	border-right: 1px solid #DDDDDD;*/
+}
+.back-orders-right table thead {
+	color:white;
+	font-weight: lighter;
+	background-color: #BCBCBC;
+}  
+.back-orders-right table td button {
+	margin-right: 10px;
+}
+
+
+
+/*back-goods*/
+
+.back-goods-right {
+	width:860px;
+	padding:0px 0px 10px 0px;
+	float:left;
+	margin-top:40px;
+	margin-left:60px;
+	/*border:1px solid red;*/
+}
+
+.back-goods-right .goods-title {
+	height:29px;
+	padding-top: 3px;
+	background-color: #DEDEDE;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	/*border: 1px solid red;*/
+}
+.back-goods-right .goods-title span {
+	color:gray;
+	float: left;
+	font-size: 20px;
+	margin-left: 5px;
+	margin-right: 30px;
+}
+.back-goods-right .goods-title .dropdown {
+	float: left;
+}
+.back-goods-right .goods-title .dropdown a {
+	color:gray;
+	font-size: 15px;
+	text-decoration: none;
+	margin-left: 10px;
+}
+.back-goods-right .goods-text {
+	width:838px;
+	float: left;
+	padding:20px 10px 10px 10px;
+	border:1px solid #DEDEDE;
+	/*border:1px solid blue;*/
+}
+
+.back-goods-right .goods-text ul {
+	padding: 0px;
+	margin: 0px;
+	float: left;
+}
+.back-goods-right .goods-text li {
+	list-style: none;
+	float: left;
+	margin-bottom: 15px;
+}
+
+.back-goods-right .goods-text li img {
+	width:150px;
+	height: 150px;
+	margin-left: 10px;
+}
+.back-goods-right .goods-text li button {
+	margin-left: 10px;
+}
+.back-goods-right .add-goods {
+	margin-top: 20px;
+	margin-left: 10px;
+}
+.back-goods-right .add-goods a {
+	color:black;
+	text-decoration: none;
+}
+.back-goods-right .update-goods {
+	margin-top: 20px;
+}
+.back-goods-right .update-goods a {
+	color:black;
+	text-decoration: none;
+}
+
+	
+
+/*back-goods-new*/
+
+.back-goods-new-right {
+	width:800px;
+	padding:0px 10px 10px 10px;
+	float:left;
+	margin-top:40px;
+	margin-left:60px;
+	/*border:1px solid red;*/
+}
+.back-goods-new-right .goods-new-title {
+	height:29px;
+	padding-top: 3px;
+	background-color: #DEDEDE;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	/*border: 1px solid red;*/
+}
+.back-goods-new-right .goods-new-title span {
+	color:gray;
+	font-size: 20px;
+	margin-left: 5px;
+}
+.back-goods-new-right .goods-new-text {
+	padding:20px 0px 0px 200px;
+	border:1px solid #DEDEDE;
+}
+.back-goods-new-right .goods-new-text form {
+	/*border:1px solid blue;*/
+}
+.back-goods-new-right .goods-new-text form ul {
+	padding: 0px;
+	margin: 0px;
+}
+.back-goods-new-right .goods-new-text form li {
+	list-style: none;
+	line-height: 70px;
+	/*border:1px solid green;*/
+}
+
+
+/*back-goods-update*/
+
+.back-goods-update-right {
+	width:800px;
+	padding:0px 10px 10px 10px;
+	float:left;
+	margin-top:40px;
+	margin-left:60px;
+	/*border:1px solid red;*/
+}
+.back-goods-update-right .goods-update-title {
+	height:29px;
+	padding-top: 3px;
+	background-color: #DEDEDE;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	/*border: 1px solid red;*/
+}
+.back-goods-update-right .goods-update-title span {
+	color:gray;
+	font-size: 20px;
+	margin-left: 5px;
+}
+.back-goods-update-right .goods-update-text {
+	padding:20px 0px 0px 200px;
+	border:1px solid #DEDEDE;
+}
+.back-goods-update-right .goods-update-text form {
+	/*border:1px solid blue;*/
+}
+.back-goods-update-right .goods-update-text form ul {
+	padding: 0px;
+	margin: 0px;
+}
+.back-goods-update-right .goods-update-text form li {
+	list-style: none;
+	line-height: 70px;
+	/*border:1px solid green;*/
+}
+.back-goods-update-right .goods-update-text form li img {
+	width:100px;
+	height: 100px;
+	/*border:1px solid red;*/
+}
+

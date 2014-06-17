@@ -1,0 +1,24 @@
+
+/*.reg {width:980px; border:1px solid red;}*/
+.regbody-bg{background-color:#FAFBFD;}
+.span9 {/*border:1px solid blue;*/}
+.reg-header {width:960px; height:90px;margin-top:10px;margin-left:10px;border-bottom:4px solid #FFBA00;/*border:1px solid red;*/}
+.reg-header .reg-logo {width:68px;height:70px;float:left;/*border:1px solid red;*/}
+.reg-header .reg-title {width:200px; font-size: 32px; color:green;padding-top:5px;margin-left:3px;float:left;/*border:1px solid red;*/}
+.reg-header .reg-title span {height:30px;/*border:1px solid blue;*/}
+.reg-header .reg-yinyan {color:#B3B3B4;font-weight:bold;font-size: 24px;float:left;margin-left:20px;margin-top:48px;/*border:1px solid blue;*/}
+.reg-header .reg-login {width:150px;margin-top:50px;float:right;/*border:1px solid red;*/}
+.reg-header .reg-login .reg-login-span1 {width:70px;text-align:center;font-size:13px;margin-top:5px;/*border:1px solid red;*/}
+.reg-header .reg-login .reg-login-span2 {width:70px;height:20px;text-align:center;padding-top:4px;background-color:#FFBA00;/*border:1px solid blue;*/}
+.reg-header .reg-login a {font-weight:bold;color:white;font-size:13px;/*border:1px solid red;*/}
+
+.reg-mid {width:962px; height:472px;margin-left:9px;background:url(../images/register/reg-bg.png) no-repeat;/*border:1px solid green;*/}
+.reg-mid .reg-mid-left {float:left;/*border:1px solid red;*/}
+.reg-mid .reg-mid-text {height:50px;color:#999999;font-size:12px; padding:10px 0px 0px 10px;/*border:1px solid red;*/}
+.reg-mid  li {font-size:13px;list-style: none;line-height:55px;/*border:1px solid red;*/}
+.reg-mid  li .xing {color:red;}
+.reg-mid  li .reg-mid-chk {width:50px;}
+.reg-mid  li .reg-mid-btn {width:150px;height:35px;color:white;margin-left: 60px;background-color: #FFBA00;/*border:1px solid red;*/}
+.reg-mid .reg-mid-xieyi {color:gray; font-size: 13px;margin-left: 80px;}
+.reg-mid .reg-mid-right {width:400px; height:460px;float:right;background:url(../images/register/register-photo.png);/*border:1px solid red;*/}
+.reg-tail {font-size: 13px;color:gray; margin-left: 250px; margin-top: 15px;} 

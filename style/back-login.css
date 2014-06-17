@@ -1,0 +1,42 @@
+body{
+	background-color:#B1DB5F;
+}
+.back-login {
+	width:600px;
+	height:300px;
+	text-align: center;
+	margin-top: 170px;
+	margin-left: 400px;
+	padding-top: 20px;
+	border-radius: 5px;
+	border:10px solid #A0C656;
+}
+.back-login .back-login-title {
+	float: left;
+
+	/*border:1px solid red;*/
+}
+.back-login .back-login-title img {
+	margin-left: 40px;	
+}
+
+.back-login .back-login-title span {
+	font-size: 30px;
+/*	color:green;*/
+
+}
+.back-login .back-login-text {
+	float: left;
+	margin-left: 150px;	
+	margin-top: 20px;
+	/*border:1px solid blue;*/
+}
+.back-login .back-login-text ul {
+	padding: 0px;
+	margin: 0px;
+}
+.back-login .back-login-text li {
+	line-height: 50px;
+	list-style: none;
+/*	color:green;*/
+}
