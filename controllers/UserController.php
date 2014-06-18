@@ -4,7 +4,7 @@ include_once("../domain/UserClass.php");
 header("Content-type: text/html; charset=utf-8");
 
 $userService = new UserService();
-$type = $_POST['type'];
+$type = $_REQUEST['type'];
 
 //添加一个客户
 if($type == 'addUser') {
@@ -12,35 +12,30 @@ if($type == 'addUser') {
 	$name = $_POST['name'];
 	$nickname= $_POST['nickname'];
 	$password = $_POST['password'];
-	$password2 = $_POST['password2'];
+	//$password2 = $_POST['password2'];
 	$email = $_POST['email'];
 	$authority = $_POST['authority'];
 
-	if($password == $password2) {
 
-		$user = new User();
-		$user->setName($name);
-		$user->setNickname($nickname);
-		$user->setPassword($password);
-		$user->setEmail($email);
-		$user->setAuthority($authority);
+	$user = new User();
+	$user->setName($name);
+	$user->setNickname($nickname);
+	$user->setPassword($password);
+	$user->setEmail($email);
+	$user->setAuthority($authority);
 
 		//调用UserService类
 /*		$userService = new UserService();*/
 
-		if($userService->addUser($user)){
-			$id = $userService->getUserId($name);
-			var_dump($id);
-			/*header("Location:../view/login.php?id='$id'");*/
-			header("Location:../view/register.php?id='$id'");
-
-		}else{
-			header("Location:../view/register.php?register_message=errordb");	 
-		}	
+	if($userService->addUser($user)){
+		$id = $userService->getUserId($name);
+		//var_dump($id);
+		header("Location:../view/login.php?id=$id");
+		//header("Location:../view/register.php?id='$id'");
 
 	}else{
-			header("Location:../view/register.php?register_message=error_password");	 
-		}	
+		header("Location:../view/register.php?register_message=errordb");
+	}		
 }
 
 

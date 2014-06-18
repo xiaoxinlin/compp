@@ -5,12 +5,20 @@
 		<link rel="stylesheet" href="../style/register.css" type="text/css"></link>
 		<link rel="stylesheet" href="../style/bootstrap.min.css" />
 		<link rel="stylesheet" href="../style/bootstrap-responsive.min.css" />
-
-		<script src="js/jquery-2.1.0.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-
 		<title>创意家居小精品购物网站注册</title>
-
+		<script type="text/javascript">
+			function checkPas(){
+				var password = document.getElementById("password").value;
+				var password2 = document.getElementById("password2").value;
+				if(password == password2){
+					//alert('true');
+					return true;
+				}else{
+					alert('请输入相同的密码！');
+					return false;
+				}
+			}
+		</script>
 
 	</head>
 
@@ -39,11 +47,11 @@
 									<li><span class="xing">*</span> 用&nbsp;&nbsp;户&nbsp;&nbsp;名：<input type="text" id="username" name="name" value="" required /></li>
 									<li><span class="xing">*</span> 昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：<input type="text" id="nickname" name="nickname" value="" required /></li>
 									<li><span class="xing">*</span> 密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" id="password" name="password" value="" required /></li>
-									<li><span class="xing">*</span> 确认密码：<input type="password" id="password" name="password2" value="" required /></li>
+									<li><span class="xing">*</span> 确认密码：<input type="password" id="password2" name="password2" value="" required /></li>
 									<li><span class="xing">*</span> 邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：<input type="email" id="email" name="email" value="" required /></li>
 									<li><input type="hidden" id="authority" name="authority" value="customer"></li>
 									<li><input type="hidden" id="type" name="type" value="addUser"></li>
-									<li><input type="submit" name="submit" id="submit" class="reg-mid-btn" value="同意协议并注册" /></li>
+									<li><input type="submit" name="submit" onclick="return checkPas()" id="submit" class="reg-mid-btn" value="同意协议并注册" /></li>
 								</ul>
 								<span class="reg-mid-xieyi">&lt;&lt;小精品购物服务使用协&gt;&gt;</span>						
 							</form>
@@ -62,5 +70,7 @@
 
 			</div>
 		</div>
+		<script src="js/jquery-2.1.0.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 	</body>
 </html>

@@ -16,17 +16,16 @@ $user->setPassword($password);
 $userService = new UserService();
 
 if($userService->checkUser($user)) {
-	session_start();
-	$_SESSION['user'] = $user;
-
-	//调用获取全部客户信息方法
-	$userService->getCustomers();
-
-
-	header("Location:../viewBack/back-customer.php");
+	if($user->authority=="admin"){
+		session_start();
+		$_SESSION['user'] = $user;
+		header("Location:../controllers/UserController.php?type=getCustomers");
+	}else{
+		header("Location:../viewBack/back-login.php?back_login_message=error2");
+	}
 
 }else {
-	header("Location:../viewBack/back-login.php?back_login_message=error");
+	header("Location:../viewBack/back-login.php?back_login_message=error1");
 }
 
 

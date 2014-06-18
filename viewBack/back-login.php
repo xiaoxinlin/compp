@@ -13,10 +13,13 @@
 
 		<script>
 			<?php 
-				if(isset($_GET['back_login_message'])) {
-			?>
-			alert('用户名或密码错误，请重新输入！');
-			<?php
+				$error = $_GET['back_login_message'];
+				if(isset($error)){
+					if($error == 'error1'){
+						echo "alert('用户名或密码错误！！');";
+					}else if($error == 'error2'){
+						echo "alert('请使用管理员帐号登录！！');";
+					}
 				}
 			?>
 			

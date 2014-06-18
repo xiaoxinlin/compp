@@ -97,7 +97,8 @@
 
 									<?php
 										include_once("../domain/UserClass.php");
-										session_start();
+										session_start();	
+										
 										$allCustomers = $_SESSION['allCustomers'];
 										foreach ($allCustomers as $user) {
 											echo "<tr>";
@@ -108,7 +109,7 @@
 											echo "<td><botton type='button' name='delete-customer' value='delete' class='btn'>删除</button></td>";
 											echo "</tr>";
 										}
-										unset($allCustomers);
+										//unset($_SESSION['allCustomers']);
 									?>
 									<!-- <tr>
 										<td>112011059</td>
