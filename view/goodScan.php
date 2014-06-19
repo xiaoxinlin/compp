@@ -216,7 +216,7 @@ session_start();
 								<div class="pagination">
 									<ul>
 										<li>
-											<a href="#" name="previous">上一页</a>
+											<a href="../controllers/goodController.php?type=getGoods&pageNow=<?php if ( ($goods->getPageNow()-1)==0 ){echo $goods->getPageNow();}else{ echo $goods->getPageNow()-1;}?>&category=drawing" name="previous">上一页</a>
 										</li>
 										<!-- <li>
 											<a href="#">1</a>
@@ -234,7 +234,7 @@ session_start();
 											<a href="#">5</a>
 										</li> -->
 										<li>
-											<a href="#" name="next">下一页</a>
+											<a href="../controllers/goodController.php?type=getGoods&pageNow=<?php if ( $goods->getPageNow()==$goods->getPageCount() ){echo $goods->getPageNow();}else{ echo $goods->getPageNow()+1;}?>&category=drawing" name="next">下一页</a>
 										</li>
 									</ul>
 								</div>
