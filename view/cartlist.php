@@ -75,7 +75,7 @@
 										echo "<td><a href='../controllers/goodController.php?type=getGood&id=$goodId'><img src='../$goodUrl'></a></td>";
 										echo "<td>$goodPrice</td>";
 										echo "<td><input type='text' name='quantity' value='$goodNums' class='cart-mid-quantity'></td>";
-										echo "<td><input type='button' name='delete' value='删除'></td>";
+										echo "<td><a class = 'btn' name='delete' href='../controllers/cartController.php?type=delGood&id=$goodId'>删除</a></td>";
 										echo "</tr>";
 									}
 

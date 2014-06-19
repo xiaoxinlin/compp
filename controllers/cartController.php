@@ -16,12 +16,20 @@
 		}
 		$cart->addGood($good);
 		header("Location:../view/cartlist.php");
-	}elseif ($type == "clearCart") {
+	}else if($type == "clearCart") {
 		session_start();
 		$cart = new Cart();
 		
 		$_SESSION['cart'] = $cart;
 		//var_dump($cart);
+		header("Location:../view/cartlist.php");
+	}elseif ($type == "delGood") {
+		$id =  $_REQUEST['id'];
+		session_start();
+		$cart = $_SESSION['cart'];
+		$goodList = $cart->getGoodList();
+		unset($goodList[$id]);
+		$cart->setGoodList($goodList);
 		header("Location:../view/cartlist.php");
 	}
 ?>
