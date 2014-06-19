@@ -1,9 +1,36 @@
 <?php 
-
+	require_once("../dao/DBClass.php");
+	require_once("../domain/GoodClass.php");
+	include_once('../domain/PageClass.php');
 class GoodService {
 
-	function getPage() {
+	//通过一个pageBean和category获取分页
+	function getPage($pageBean,$category) {
 
+		$db = new DB();
+		$db->get_connection();
+		//查询商品总数
+		$sql = "select count(*) from good where category = '$category'";
+		$result = $db->query($sql);
+		if( $row = mysql_fetch_array($result) ){
+			$pageBean->setRowCount($row[0]);
+			$pageBean->setPageCount( floor( ($pageBean->getRowCount()-1)/$pageBean->getPageSize() )+1 );
+		}
+		$start = ( $pageBean->getPageNow()-1 ) * $pageBean->getPageSize();
+		$size = $pageBean->getPageSize();
+		$sql = "select * from good where category = '$category' limit $start ,$size";
+		$result = $db->query($sql);
+		while( $row = mysql_fetch_array($result) ){
+			$good = new Good();
+			$good->setId($row['id']);
+			$good->setName($row['name']);
+			$good->setPrice($row['price']);
+			$good->setDescription($row['description']);
+			$good->setCategory($row['category']);
+			$good->setUrl($row['url']); 
+			$pageBean->setGoodList($good);
+		}
+		$db->close_connection();
 	}
 
 	//添加商品
@@ -12,13 +39,31 @@ class GoodService {
 	}
 
 	//获取全部商品信息
-	function getGoods() {
-
+	function getGoods($pageNow,$type){
+		$pageBean = new PageBean();
+		$pageBean->setPageSize(10);
+		$pageBean->setPageNow($pageNow);
+		$this->getPage($pageBean,$type);
+		return $pageBean;
 	}
 
 	//获取某个商品信息
 	function getGoodById($id) {
-
+		$db = new DB();
+		$db->get_connection();
+		$sql = "select * from good where id = $id";
+		$result = $db->query($sql);
+		$good = new Good();
+		if( $row = mysql_fetch_array($result) ){
+			
+			$good->setId($row['id']);
+			$good->setName($row['name']);
+			$good->setPrice($row['price']);
+			$good->setDescription($row['description']);
+			$good->setCategory($row['category']);
+			$good->setUrl($row['url']); 
+		}
+		return $good;
 	}
 
 

@@ -19,42 +19,42 @@ class Good {
 	}
 
 	public function setId($id) {
-		$this->id = id;
+		$this->id = $id;
 	} 
 	public function getId() {
 		return $this->id;
 	}
 
 	public function setName($name) {
-		$this->name = name;
+		$this->name = $name;
 	} 
 	public function getName() {
 		return $this->name;
 	}
 
 	public function setPrice($price) {
-		$this->price = price;
+		$this->price = $price;
 	} 
 	public function getPrice() {
 		return $this->price;
 	}
 
 	public function setDescription($description) {
-		$this->description = description;
+		$this->description = $description;
 	} 
 	public function getDescription() {
 		return $this->description;
 	}
 
 	public function setCategory($category) {
-		$this->category = category;
+		$this->category = $category;
 	} 
 	public function getCategory() {
 		return $this->category;
 	}
 
 	public function setUrl($url) {
-		$this->url = url;
+		$this->url = $url;
 	} 
 	public function getUrl() {
 		return $this->url;

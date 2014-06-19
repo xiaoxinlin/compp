@@ -1,3 +1,7 @@
+<?php
+	require_once("../domain/GoodClass.php");
+	session_start();
+?>
 <!DOCTYPE HTML >
 <html>
 	<head>
@@ -31,12 +35,33 @@
 
 		<!-- 中间上 -->
 		<div class="dr1-mid-up">
+			<?php 
+					$good = $_SESSION['good'];
+					$goodId = $good->getId();
+					$goodName = $good->getName();
+					$goodPrice = $good->getPrice();
+					$goodDescription = $good->getDescription();
+					$goodCategory = $good->getCategory();
+					$goodUrl = $good->getUrl();
+
+			?>
 			<div class="dr1-mid-img">
-				<img src="../images/drawing/dr1.jpg">
+				<img src='../<?php echo $goodUrl;?>'>
 			</div>
 
 			<div class="dr1-mid-upright">
 				<ul>
+					<li><span><?php echo "$goodName  ————  $goodDescription"; ?></span></li>
+					<li><span class="dr1-mid-price">原&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价 ：</span><span class="dr1-mid-yuanjia">￥<?php echo $goodPrice;?></span></li>
+					<li><span class="dr1-mid-price">折&nbsp;&nbsp;&nbsp;后&nbsp;&nbsp;&nbsp;价 ：</span><span class="dr1-mid-yuan">￥</span><span class="dr1-mid-zhejia"><?php echo $goodPrice*0.9;?></span></li>
+					<li><span class="dr1-mid-price">数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量 ：</span>
+						<span id="btn-increase" class="btn btn-mini dr1-btn-increase">∧</span>
+						<input type="text" max-size="50" value='1'>
+						<span id="btn-decrease" class="btn btn-mini dr1-btn-decrease">∨</span>
+					</li>
+					<li><span class="dr1-mid-buy"><a href="cartlist.php">加入购物车</a></span></li>
+				</ul>
+				<!--<ul>
 					<li><span>适于客厅装饰的花盆——花盆（英文名：flower pot），种花用的一种器皿，
 						花卉生产者或养花人士可以根据花卉的特性和需要以及花盆的特点选用花盆。</span></li>
 					<li><span class="dr1-mid-price">原&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价 ：</span><span class="dr1-mid-yuanjia">￥15.00</span></li>
@@ -47,7 +72,7 @@
 						<span id="btn-decrease" class="btn btn-mini dr1-btn-decrease">∨</span>
 					</li>
 					<li><span class="dr1-mid-buy"><a href="cartlist.php">加入购物车</a></span></li>
-				</ul>
+				</ul>-->
 			</div>
 		</div>
 
