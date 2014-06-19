@@ -121,7 +121,7 @@
 			</div>
 
 			<div class="cart-mid-btn">
-				<button id="" class="btn btn-large"><a href="">清空购物车</a></button>
+				<button id="" class="btn btn-large"><a href="../controllers/cartController.php?type=clearCart">清空购物车</a></button>
 				<button id="" class="btn btn-large"><a href="../index.php">继续购物</a></button>
 				<button id="" class="btn btn-large"><a href="">立刻结算</a></button>
 				<div class="cart-mid-allprice">总额：<span><?php echo $totalPrice;?></span>元</div>

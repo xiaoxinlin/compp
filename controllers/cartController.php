@@ -16,5 +16,12 @@
 		}
 		$cart->addGood($good);
 		header("Location:../view/cartlist.php");
+	}elseif ($type == "clearCart") {
+		session_start();
+		$cart = new Cart();
+		
+		$_SESSION['cart'] = $cart;
+		//var_dump($cart);
+		header("Location:../view/cartlist.php");
 	}
 ?>
