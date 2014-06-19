@@ -1,3 +1,8 @@
+<?php
+	require_once("../domain/CartClass.php");
+	require_once("../domain/GoodClass.php");
+	session_start();
+?>
 <!DOCTYPE HTML >
 <html>
 	<head>
@@ -35,7 +40,49 @@
 			<div class="container-fluid">
 				<div class="row-fluid">
 					<div class="span12">
+						<?php
+							$cart = $_SESSION['cart'];
+							//var_dump($cart);
+							$totalPrice = $cart->getTotalPrice();
+							//var_dump($totalPrice);
+							$goodList = $cart->getGoodList();
+							//var_dump($goodList);
+						?>
 						<table class="table">
+							<thead>
+								<tr>
+									<th>精品名称</th>
+									<th>缩略图</th>
+									<th>单价</th>
+									<th>数量</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+									for ($i=0; $i <count($goodList) ; $i++) { 
+										$keys = array_keys ( $goodList );
+										$good = $goodList[$keys[$i]];
+										$goodId = $good->getId();
+										$goodName = $good->getName();
+										$goodPrice = $good->getPrice();
+										$goodDescription = $good->getDescription();
+										$goodCategory = $good->getCategory();
+										$goodUrl = $good->getUrl();
+										$goodNums = $good->getNums();
+										echo "<tr>";
+										echo "<td>$goodName</td>";
+										echo "<td><a href='../controllers/goodController.php?type=getGood&id=$goodId'><img src='../$goodUrl'></a></td>";
+										echo "<td>$goodPrice</td>";
+										echo "<td><input type='text' name='quantity' value='$goodNums' class='cart-mid-quantity'></td>";
+										echo "<td><input type='button' name='delete' value='删除'></td>";
+										echo "</tr>";
+									}
+
+								?>
+							</tbody>
+						</table>
+						<!--<table class="table">
 							<thead>
 								<tr>
 									<th>精品名称</th>
@@ -68,7 +115,7 @@
 									<td>@mdo</td>
 								</tr>
 							</tbody>
-						</table>
+						</table>-->
 					</div>
 				</div>
 			</div>
@@ -77,7 +124,7 @@
 				<button id="" class="btn btn-large"><a href="">清空购物车</a></button>
 				<button id="" class="btn btn-large"><a href="../index.php">继续购物</a></button>
 				<button id="" class="btn btn-large"><a href="">立刻结算</a></button>
-				<div class="cart-mid-allprice">总额：<span>0.00</span>元</div>
+				<div class="cart-mid-allprice">总额：<span><?php echo $totalPrice;?></span>元</div>
 			</div>
 		</div>
 

@@ -59,7 +59,7 @@
 						<input type="text" max-size="50" value='1'>
 						<span id="btn-decrease" class="btn btn-mini dr1-btn-decrease">∨</span>
 					</li>
-					<li><span class="dr1-mid-buy"><a href="cartlist.php">加入购物车</a></span></li>
+					<li><span class="dr1-mid-buy"><a href="../controllers/cartController.php?type=addGood&id=<?php echo $goodId;?>">加入购物车</a></span></li>
 				</ul>
 				<!--<ul>
 					<li><span>适于客厅装饰的花盆——花盆（英文名：flower pot），种花用的一种器皿，

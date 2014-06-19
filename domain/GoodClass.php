@@ -8,6 +8,7 @@ class Good {
 	private $description;
 	private $category;
 	private $url;
+	private $nums = 1;
 
 	function _construct($id, $name, $price, $description, $category, $url) {
 		$this->id = id;
@@ -59,7 +60,12 @@ class Good {
 	public function getUrl() {
 		return $this->url;
 	}
-
+	public function setNums($nums) {
+		$this->nums = $nums;
+	} 
+	public function getNums() {
+		return $this->nums;
+	}
 
 }
 

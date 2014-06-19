@@ -36,17 +36,17 @@ if($type == 'addUser') {
 	}else{
 		header("Location:../view/register.php?register_message=errordb");
 	}		
-}
-
-
-//获取客户信息列表
-if($type == 'getCustomers'){
+}else if($type == 'getCustomers'){
+	//获取客户信息列表
 	//获得客户列表	2014年6月15日 16:42:37 xiaoxin
 	$result = $userService->getCustomers();
 	session_start();
 	$_SESSION [ 'allCustomers' ] =  $result;
 	//var_dump($result);
 	header("Location:../viewBack/back-customer.php");
+}else if($type == 'logout'){
+	session_start();
+	session_destroy();
 }
 
 
