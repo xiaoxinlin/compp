@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<?php
+	session_start();
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html ><!--  xmlns="http://www.w3.org/1999/xhtml" -->
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -30,7 +33,18 @@
 			<div class="headright fr">
 				<div class="headright-up">
 					<!-- <span>亲，欢迎来到小精品屋！</span>   -->
-					<div class="headright-up-text"><a href="view/login.php">登录 </a> | <a href="view/register.php">注册 </a> | <a href="">我的订单 </a> | <a href="">注销</a></div>
+					<div class="headright-up-text">
+						<?php 
+							$user = $_SESSION['user'];
+							if($user){
+								echo "<a>user1</a>";
+							}else{
+								echo "<a href='view/login.php'>登录 </a> | <a href='view/register.php'>注册 </a>";
+							}
+						?>
+						
+						 | <a href="">我的订单 </a> | <a href="../controllers/UserController.php?type=logout">注销</a>
+					</div>
 				</div>
 				<div class="index-cart"><a href="view/cartlist.php"><img src="images/index/cart5.png" width="130x" height="25px" /></a></div>
 			</div>

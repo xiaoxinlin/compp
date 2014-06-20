@@ -30,7 +30,7 @@ session_start();
 				<span><a href="login.php">登录</a></span> | 
 				<span><a href="register.php">注册</a></span> | 
 				<span><a href="cartlist.php">我的精品</a></span> | 
-				<span><a href="">注销</a></span>
+				<span><a href="../controllers/UserController.php?type=logout">注销</a></span>
 			</div>
 		</div>
 
@@ -40,7 +40,7 @@ session_start();
 				<ul>
 					<li>
 						<div class="dr-mid-div1">
-							<div class="dr-mid-div2"><a href="drawing.php">客厅专用</a></div>
+							<div class="dr-mid-div2"><a href="../controllers/goodController.php?type=getGoods&pageNow=1&category=drawing">客厅专用</a></div>
 							<div class="dr-mid-div3">
 								<ul>
 									<li><a href="#">花盆</a> <a href="#">水果盘</a> <a href="#">玩偶</a></li>
@@ -52,7 +52,7 @@ session_start();
 					</li>
 					<li>
 						<div class="dr-mid-div1">
-							<div class="dr-mid-div2"><a href="view/drawing.php">餐厅专用</a></div>
+							<div class="dr-mid-div2"><a href="../controllers/goodController.php?type=getGoods&pageNow=1&category=dining">餐厅专用</a></div>
 							<div class="dr-mid-div3">
 								<ul>
 				                  	<li>
@@ -71,7 +71,7 @@ session_start();
 					</li>
 					<li>
 						<div class="dr-mid-div1">
-							<div class="dr-mid-div2"><a href="#">卧室专用</a></div>
+							<div class="dr-mid-div2"><a href="../controllers/goodController.php?type=getGoods&pageNow=1&category=bedroom">卧室专用</a></div>
 							<div class="dr-mid-div3">
 								<ul>
 				                  	<li>
@@ -90,7 +90,7 @@ session_start();
 					</li>
 					<li>
 						<div class="dr-mid-div1">
-							<div class="dr-mid-div2"><a href="#">童房专用</a></div>
+							<div class="dr-mid-div2"><a href="../controllers/goodController.php?type=getGoods&pageNow=1&category=children">童房专用</a></div>
 							<div class="dr-mid-div3">
 								<ul>
 				                  	<li>
@@ -109,7 +109,7 @@ session_start();
 					</li>
 					<li>
 						<div class="dr-mid-div1">
-							<div class="dr-mid-div2"><a href="#">书房专用</a></div>
+							<div class="dr-mid-div2"><a href="../controllers/goodController.php?type=getGoods&pageNow=1&category=schoolroom">书房专用</a></div>
 							<div class="dr-mid-div3">
 								<ul>
 				                  	<li>
@@ -128,7 +128,7 @@ session_start();
 					</li>
 					<li>
 						<div class="dr-mid-div1">
-							<div class="dr-mid-div2"><a href="#">户外专用</a></div>
+							<div class="dr-mid-div2"><a href="../controllers/goodController.php?type=getGoods&pageNow=1&category=outdoors">户外专用</a></div>
 							<div class="dr-mid-div3">
 								<ul>
 				                  	<li>
@@ -149,7 +149,12 @@ session_start();
 				</ul>
 
 			</div>
-
+			<?php 
+				$goods = (object)$_SESSION['goods'];
+				//var_dump($goods);
+				$goodList = $goods->getGoodList();
+				//var_dump($goodList);
+			?>
 			<div class="dr-mid-right">
 				<!-- 面包导航 -->
 				<div class="dr-mid-rightnav">
@@ -160,7 +165,23 @@ session_start();
 									<li>
 										<a href="../index.php">主页</a> <span class="divider">/</span>
 									</li>
-									<li class="active">客厅专用</li>
+									<li class="active">
+										<?php
+											if($goods->getCategory()=="drawing"){
+												echo "客厅专用";
+											}elseif ($goods->getCategory()=="bedroom") {
+												echo "卧室专用";
+											}elseif ($goods->getCategory()=="children") {
+												echo "童房专用";
+											}elseif ($goods->getCategory()=="dining") {
+												echo "餐厅专用";
+											}elseif ($goods->getCategory()=="outdoors") {
+												echo "户外专用";
+											}elseif ($goods->getCategory()=="schoolroom") {
+												echo "书房专用";
+											}
+										?>
+									</li>
 									<!-- <li>
 										<a href="drawing.php">客厅专用</a> <span class="divider">/</span>
 									</li>
@@ -187,12 +208,8 @@ session_start();
 					</ul>-->
 					<?php 
 						
-						$goods = (object)$_SESSION['goods'];
-						//var_dump($goods);
-						$goodList = $goods->getGoodList();
-						//var_dump($goodList);
 						echo "<ul>";
-						for ($i=0; $i <$goods->getPageSize() ; $i++) { 
+						for ($i=0; $i <count($goodList) ; $i++) { 
 							if($i % 5 == 0){
 								echo "<li>";
 							}
@@ -216,7 +233,7 @@ session_start();
 								<div class="pagination">
 									<ul>
 										<li>
-											<a href="../controllers/goodController.php?type=getGoods&pageNow=<?php if ( ($goods->getPageNow()-1)==0 ){echo $goods->getPageNow();}else{ echo $goods->getPageNow()-1;}?>&category=drawing" name="previous">上一页</a>
+											<a href="../controllers/goodController.php?type=getGoods&pageNow=<?php if ( ($goods->getPageNow()-1)==0 ){echo $goods->getPageNow();}else{ echo $goods->getPageNow()-1;}?>&category=<?php echo $goods->getCategory();?>" name="previous">上一页</a>
 										</li>
 										<!-- <li>
 											<a href="#">1</a>
@@ -234,7 +251,7 @@ session_start();
 											<a href="#">5</a>
 										</li> -->
 										<li>
-											<a href="../controllers/goodController.php?type=getGoods&pageNow=<?php if ( $goods->getPageNow()==$goods->getPageCount() ){echo $goods->getPageNow();}else{ echo $goods->getPageNow()+1;}?>&category=drawing" name="next">下一页</a>
+											<a href="../controllers/goodController.php?type=getGoods&pageNow=<?php if ( $goods->getPageNow()==$goods->getPageCount() ){echo $goods->getPageNow();}else{ echo $goods->getPageNow()+1;}?>&category=<?php echo $goods->getCategory();?>" name="next">下一页</a>
 										</li>
 									</ul>
 								</div>

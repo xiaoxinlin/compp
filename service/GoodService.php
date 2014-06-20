@@ -6,7 +6,7 @@ class GoodService {
 
 	//通过一个pageBean和category获取分页
 	function getPage($pageBean,$category) {
-
+		$pageBean->setCategory($category);
 		$db = new DB();
 		$db->get_connection();
 		//查询商品总数

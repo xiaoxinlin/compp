@@ -47,6 +47,7 @@ if($type == 'addUser') {
 }else if($type == 'logout'){
 	session_start();
 	session_destroy();
+	header("Location:../view/login.php");
 }
 
 

@@ -11,6 +11,8 @@ class PageBean
 	private $pageNow = 1;
 	//总行数
 	private $rowCount = 0;
+	//商品类别
+	private $category ;
 	//取回来的数据
 	private $goodList = array();
 
@@ -50,6 +52,12 @@ class PageBean
 	}
 	public function getPageCount(){
 		return $this->pageCount;
+	}
+	public function setCategory($category){
+		$this->category = $category;
+	}
+	public function getCategory(){
+		return $this->category;
 	}
 }
 ?>
