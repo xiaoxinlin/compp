@@ -96,7 +96,7 @@
 								<tbody>
 									<tr>
 										<td>112011059</td>
-										<td>江彩霞</td>
+										<td>江彩霞2</td>
 										<td>呼呼</td>
 										<td>822055377@qq.com</td>
 										<td><botton type="button" name="delete-admin" value="delete" class="btn">删除</button></td>
