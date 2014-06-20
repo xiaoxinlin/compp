@@ -1,6 +1,16 @@
 <?php
 	require_once("../domain/GoodClass.php");
+	require_once("../domain/UserClass.php");
 	session_start();
+
+	$good = $_SESSION['good'];
+	$goodId = $good->getId();
+	$goodName = $good->getName();
+	$goodPrice = $good->getPrice();
+	$goodDescription = $good->getDescription();
+	$goodCategory = $good->getCategory();
+	$goodUrl = $good->getUrl();
+
 ?>
 <!DOCTYPE HTML >
 <html>
@@ -26,25 +36,28 @@
 				<input type="submit" class="all-btn" value="搜  索"></button>
 			</div>
 			<div class="all-header-right">
-				<span><a href="login.php">登录</a></span> | 
-				<span><a href="register.php">注册</a></span> | 
-				<span><a href="cartlist.php">我的精品</a></span> | 
-				<span><a href="">注销</a></span>
+				<?php 
+							$user = 0;
+							if(isset($_SESSION['user'])){
+								$user = $_SESSION['user'];
+							}
+							
+							if($user){
+								//var_dump($user);
+								$userName = $user->getNickname();
+								echo "<strong>$userName</strong>";
+							}else{
+								echo "<a href='./login.php'>登录 </a> | <a href='./register.php'>注册 </a>";
+							}
+						?>
+						
+						 | <a href="./cartlist.php">我的订单 </a>  | <a href="../controllers/UserController.php?type=logout">注销</a>
 			</div>
 		</div>
 
 		<!-- 中间上 -->
 		<div class="dr1-mid-up">
-			<?php 
-					$good = $_SESSION['good'];
-					$goodId = $good->getId();
-					$goodName = $good->getName();
-					$goodPrice = $good->getPrice();
-					$goodDescription = $good->getDescription();
-					$goodCategory = $good->getCategory();
-					$goodUrl = $good->getUrl();
-
-			?>
+			
 			<div class="dr1-mid-img">
 				<img src='../<?php echo $goodUrl;?>'>
 			</div>
@@ -56,10 +69,10 @@
 					<li><span class="dr1-mid-price">折&nbsp;&nbsp;&nbsp;后&nbsp;&nbsp;&nbsp;价 ：</span><span class="dr1-mid-yuan">￥</span><span class="dr1-mid-zhejia"><?php echo $goodPrice*0.9;?></span></li>
 					<li><span class="dr1-mid-price">数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量 ：</span>
 						<span id="btn-increase" class="btn btn-mini dr1-btn-increase">∧</span>
-						<input type="text" max-size="50" value='1'>
+						<input id="nums" type="text" max-size="50" value='1'>
 						<span id="btn-decrease" class="btn btn-mini dr1-btn-decrease">∨</span>
 					</li>
-					<li><span class="dr1-mid-buy"><a href="../controllers/cartController.php?type=addGood&id=<?php echo $goodId;?>">加入购物车</a></span></li>
+					<li><span class="dr1-mid-buy"><a onclick="getNums()" href="../controllers/cartController.php?type=addGood&id=<?php echo $goodId;?>">加入购物车</a></span></li>
 				</ul>
 				<!--<ul>
 					<li><span>适于客厅装饰的花盆——花盆（英文名：flower pot），种花用的一种器皿，

@@ -2,6 +2,7 @@
  
 require_once("../domain/PageClass.php");
 require_once("../domain/GoodClass.php");
+require_once("../domain/UserClass.php");
 session_start();
 ?>
 <!DOCTYPE HTML >
@@ -23,14 +24,27 @@ session_start();
 		<div class="all-header">
 			<div class="all-logo"><a href="../index.php"><img src="../images/logo3.png" width='50px' height='50px'></a></div>
 			<div class="all-query">
-				<input type="query"  class="all-text" value="" placeholder="搜 搜 就 有 啦 O(∩_∩)O~">
+				
+				<input type="query"  class="all-text" name="keyword" value="" placeholder="搜 搜 就 有 啦 O(∩_∩)O~">
 				<input type="submit" class="all-btn" value="搜  索">
 			</div>
 			<div class="all-header-right">
-				<span><a href="login.php">登录</a></span> | 
-				<span><a href="register.php">注册</a></span> | 
-				<span><a href="cartlist.php">我的精品</a></span> | 
-				<span><a href="../controllers/UserController.php?type=logout">注销</a></span>
+				<?php 
+							$user = 0;
+							if(isset($_SESSION['user'])){
+								$user = $_SESSION['user'];
+							}
+							
+							if($user){
+								//var_dump($user);
+								$userName = $user->getNickname();
+								echo "<strong>$userName</strong>";
+							}else{
+								echo "<a href='./login.php'>登录 </a> | <a href='./register.php'>注册 </a>";
+							}
+						?>
+						
+						 | <a href="./cartlist.php">我的订单 </a> | <a href="../controllers/UserController.php?type=logout">注销</a>
 			</div>
 		</div>
 

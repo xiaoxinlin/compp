@@ -1,5 +1,6 @@
 <?php
 	require_once("../domain/CartClass.php");
+	require_once("../domain/UserClass.php");
 	require_once("../domain/GoodClass.php");
 	session_start();
 ?>
@@ -27,10 +28,22 @@
 				<input type="submit" class="all-btn" value="搜  索"></button>
 			</div>
 			<div class="all-header-right">
-				<span><a href="login.php">登录</a></span> | 
-				<span><a href="register.php">注册</a></span> | 
-				<span><a href="cartlist.php">我的精品</a></span> | 
-				<span><a href="">注销</a></span>
+				<?php 
+							$user = 0;
+							if(isset($_SESSION['user'])){
+								$user = $_SESSION['user'];
+							}
+							
+							if($user){
+								//var_dump($user);
+								$userName = $user->getNickname();
+								echo "<strong>$userName</strong>";
+							}else{
+								echo "<a href='./login.php'>登录 </a> | <a href='./register.php'>注册 </a>";
+							}
+						?>
+						
+						 | <a href="../controllers/UserController.php?type=logout">注销</a>
 			</div>
 		</div>
 
@@ -122,8 +135,8 @@
 
 			<div class="cart-mid-btn">
 				<button id="" class="btn btn-large"><a href="../controllers/cartController.php?type=clearCart">清空购物车</a></button>
-				<button id="" class="btn btn-large"><a href="../index.php">继续购物</a></button>
-				<button id="" class="btn btn-large"><a href="">立刻结算</a></button>
+				<button id="" class="btn btn-large"><a href="../controllers/goodController.php?type=getGoods&pageNow=1&category=drawing">继续购物</a></button>
+				<button id="" class="btn btn-large"><a href="">提交订单</a></button>
 				<div class="cart-mid-allprice">总额：<span><?php echo $totalPrice;?></span>元</div>
 			</div>
 		</div>

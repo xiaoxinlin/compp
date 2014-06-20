@@ -19,5 +19,13 @@
 		$_SESSION['good'] = $good;
 		//var_dump($good);
 		header("Location:../view/details.php");
+	}elseif ($type == "findGoods") {
+		$keyword = $_REQUEST['keyword'];
+		$pageNow = $_REQUEST['pageNow'];
+		$pageBean = $goodService->findGoods($pageNow,$keyword);
+		session_start();
+		$_SESSION['goods'] = $pageBean;
+		//var_dump($pageBean);
+		header("Location:../view/goodScan.php");
 	}
 ?>

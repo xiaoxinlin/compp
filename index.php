@@ -1,4 +1,5 @@
 ﻿<?php
+	require_once("./domain/UserClass.php");
 	session_start();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -35,15 +36,21 @@
 					<!-- <span>亲，欢迎来到小精品屋！</span>   -->
 					<div class="headright-up-text">
 						<?php 
-							$user = $_SESSION['user'];
+							$user = 0;
+							if(isset($_SESSION['user'])){
+								$user = $_SESSION['user'];
+							}
+							
 							if($user){
-								echo "<a>user1</a>";
+								//var_dump($user);
+								$userName = $user->getNickname();
+								echo "<strong>$userName</strong>";
 							}else{
 								echo "<a href='view/login.php'>登录 </a> | <a href='view/register.php'>注册 </a>";
 							}
 						?>
 						
-						 | <a href="">我的订单 </a> | <a href="../controllers/UserController.php?type=logout">注销</a>
+						 | <a href="./view/cartlist.php">我的订单 </a> | <a href="./controllers/UserController.php?type=logout">注销</a>
 					</div>
 				</div>
 				<div class="index-cart"><a href="view/cartlist.php"><img src="images/index/cart5.png" width="130x" height="25px" /></a></div>
@@ -56,12 +63,12 @@
 
 		  	<!-- 导航左边 -->
 		    <div class="navCon-cate fl navCon_on">
-		      <div class="navCon-cate-title"> <a href="view/allcategory.php">全部商品分类</a></div>
+		      <div class="navCon-cate-title"> <a href="">全部商品分类</a></div>
 		      <div class="cateMenu hide">
 		        <ul>
 		          <!-- 第一栏 -->
 		          <li style="border-top: none;">
-		            <div class="cate-tag"> <strong><a href="view/drawing.php">客厅专用</a></strong>
+		            <div class="cate-tag"> <strong><a href="./controllers/goodController.php?type=getGoods&pageNow=1&category=drawing">客厅专用</a></strong>
 		              <div class="listModel">
 		                <p> <a href="#">花盆</a> 
 		                	<a href="#">水果盘</a> 
@@ -108,7 +115,7 @@
 
 		          <!-- 第二栏 -->
 		          <li >
-		            <div class="cate-tag"> <strong><a href="#">餐厅专用</a></strong>
+		            <div class="cate-tag"> <strong><a href="./controllers/goodController.php?type=getGoods&pageNow=1&category=dining">餐厅专用</a></strong>
 		              <div class="listModel">
 		                <p> <a href="#">碟子</a> 
 		                	<a href="#">刀具</a> 
@@ -154,7 +161,7 @@
 
 		          <!-- 第三栏 -->
 		          <li >
-		            <div class="cate-tag"> <strong><a href="#">卧室专用</a></strong>
+		            <div class="cate-tag"> <strong><a href="./controllers/goodController.php?type=getGoods&pageNow=1&category=bedroom">卧室专用</a></strong>
 		              <div class="listModel">
 		                <p> <a href="#">墙贴</a> 
 		                	<a href="#">台灯</a> 
@@ -200,7 +207,7 @@
 
 		          <!-- 第四栏 -->
 		          <li >
-		            <div class="cate-tag"> <strong><a href="#">童房专用</a></strong>
+		            <div class="cate-tag"> <strong><a href="./controllers/goodController.php?type=getGoods&pageNow=1&category=children">童房专用</a></strong>
 		              <div class="listModel">
 		                <p> <a href="#">玩偶</a> 
 		                	<a href="#">台灯</a> 
@@ -248,7 +255,7 @@
 		           
 		          <!-- 第五栏 -->
 				 <li >
-		            <div class="cate-tag"> <strong><a href="#">书房专用</a></strong>
+		            <div class="cate-tag"> <strong><a href="./controllers/goodController.php?type=getGoods&pageNow=1&category=schoolroom">书房专用</a></strong>
 		              <div class="listModel">
 		                <p> <a href="#">笔筒</a> 
 		                	<a href="#">书架</a> 
@@ -295,7 +302,7 @@
 
 				<!-- 第六栏 -->
 		          <li >
-		            <div class="cate-tag"> <strong><a href="#">户外专用</a></strong>
+		            <div class="cate-tag"> <strong><a href="./controllers/goodController.php?type=getGoods&pageNow=1&category=outdoors">户外专用</a></strong>
 		              <div class="listModel">
 		                <p> <a href="#">雕像</a> 
 		                	<a href="#">花盆</a> 
@@ -368,8 +375,10 @@
 				<div class="midbg-mid">
 					<div class="mid-query">
 						<div class="query-btn">
-							<input type="text"  value="" placeholder="搜 搜 就 有 啦 O(∩_∩)O~">
-							<button type="submit" ><strong>搜  索</strong></button>
+							<form action = "./controllers/goodController.php?type=findGoods&pageNow=1" method="post">
+								<input type="text"  name ="keyword" placeholder="搜 搜 就 有 啦 O(∩_∩)O~">
+								<button type="submit" ><strong>搜  索</strong></button>
+							</form>
 						</div>
 						<div class="query-a">
 							<span>热门搜索：</span> <a href="#">相框</a>  <a href="#">花瓶</a>  <a href="#">台灯</a>  <a href="#">笔筒</a>

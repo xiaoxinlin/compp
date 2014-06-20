@@ -12,8 +12,9 @@ class UserService {
 		$result =  $db->query($sql);
 
 		if($row = mysql_fetch_array($result)) {
-			$user->setNickname($row['name']);
-			$user->setPassword($row['nickname']);
+			$user->setName($row['name']);
+			$user->setNickname($row['nickname']);
+			$user->setPassword($row['password']);
 			$user->setEmail($row['email']);
 			$user->setAuthority($row['authority']);
 

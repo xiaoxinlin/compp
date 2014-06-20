@@ -1,3 +1,7 @@
+<?php
+	require_once("../domain/UserClass.php");
+	session_start();
+?>
 <!DOCTYPE HTML >
 <html>
 	<head>
@@ -22,10 +26,22 @@
 				<input type="submit" class="all-btn" value="搜  索"></button>
 			</div>
 			<div class="all-header-right">
-				<span><a href="login.php">登录</a></span> | 
-				<span><a href="register.php">注册</a></span> | 
-				<span><a href="cartlist.php">我的精品</a></span> | 
-				<span><a href="">注销</a></span>
+				<?php 
+							$user = 0;
+							if(isset($_SESSION['user'])){
+								$user = $_SESSION['user'];
+							}
+							
+							if($user){
+								//var_dump($user);
+								$userName = $user->getNickname();
+								echo "<strong>$userName</strong>";
+							}else{
+								echo "<a href='./login.php'>登录 </a> | <a href='./register.php'>注册 </a>";
+							}
+						?>
+						
+						 | <a href="./cartlist.php">我的订单 </a> | <a href="../controllers/UserController.php?type=logout">注销</a>
 			</div>
 		</div>
 
