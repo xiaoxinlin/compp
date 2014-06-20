@@ -3,6 +3,7 @@ body {
 }
 .all-header {
 	width:1365px;
+	/*width:1365px;*/
 	height:56px;
 	border-bottom: 5px solid #65B600;
 	/*border:1px solid red;*/
@@ -151,6 +152,7 @@ body {
 
 .all-tail {
 	width:1250px;
+	/*width:1250px;*/
 	float:left;
 	height:100px;
 	margin-top:40px; 
@@ -186,4 +188,10 @@ body {
 .all-tail .all-tail-text .all-tail-text2 a {
 	color:green; 
 	margin-right:10px;
+}
+#baidu a{
+	color:#EE6911; 
+}
+#about a{
+	color:green;
 }
