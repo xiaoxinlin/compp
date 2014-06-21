@@ -29,6 +29,8 @@
 		//var_dump($order);
 		$result = $orderService->addOrder($order);
 		//var_dump($result);
+		$goodList = array();
+		$cart->setGoodList($goodList);
 		header("Location:../view/submitOrder.php");
 	}
 ?>

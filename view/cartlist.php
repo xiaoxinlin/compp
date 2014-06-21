@@ -136,7 +136,7 @@
 			<div class="cart-mid-btn">
 				<button id="" class="btn btn-large"><a href="../controllers/cartController.php?type=clearCart">清空购物车</a></button>
 				<button id="" class="btn btn-large"><a href="../controllers/goodController.php?type=getGoods&pageNow=1&category=drawing">继续购物</a></button>
-				<button id="" class="btn btn-large"><a href="">提交订单</a></button>
+				<button id="" class="btn btn-large"><a href="../controllers/orderController.php?type=addOrder">提交订单</a></button>
 				<div class="cart-mid-allprice">总额：<span><?php echo $totalPrice;?></span>元</div>
 			</div>
 		</div>

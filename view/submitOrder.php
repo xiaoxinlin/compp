@@ -32,12 +32,12 @@
 			</div>
 			<div class = 'row offset5'>
 
-				<a class="btn btn-primary" href="">返回继续购物</a>
+				<a class="btn btn-primary" href="../controllers/goodController.php?type=getGoods&pageNow=1&category=drawing">返回继续购物</a>
 			</div>
 			
 			
 			<!-- 尾部 -->
-			<div class="row " id = "footer" style="border-top:2px solid #B3B3B4;">
+			<div class="row " id = "footer" style="border-top:2px solid #B3B3B4;margin-top:20px;">
 				
 					<div class="offset4" id = "about">
 						<a href="#">关于COMPP</a> <a href="#">帮助中心</a> <a href="#">联系我们</a> 
