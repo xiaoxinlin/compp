@@ -1,8 +1,11 @@
 <?php
 	include_once('../service/GoodService.php');
+	include_once('../service/CommentService.php');
 	
 	$type = $_REQUEST['type'];
 	$goodService = new GoodService();
+	$commentService = new CommentService();
+
 	if($type == "getGoods"){
 		$category = $_REQUEST['category'];
 		$pageNow = $_REQUEST['pageNow'];
@@ -15,9 +18,12 @@
 	}else if($type == "getGood"){
 		$id =  $_REQUEST['id'];
 		$good = $goodService->getGoodById($id);
+		$commentList = $commentService->getCommentByGoodId($id);
 		session_start();
 		$_SESSION['good'] = $good;
+		$_SESSION['commentList'] = $commentList;
 		//var_dump($good);
+		//var_dump($commentList);
 		header("Location:../view/details.php");
 	}elseif ($type == "findGoods") {
 		$keyword = $_REQUEST['keyword'];

@@ -1,6 +1,7 @@
 <?php
 	require_once("../domain/GoodClass.php");
 	require_once("../domain/UserClass.php");
+	require_once("../domain/CommentClass.php");
 	session_start();
 
 	$good = $_SESSION['good'];
@@ -95,24 +96,35 @@
 				<img src="../images/comment.jpg">
 				<span>累计评价：</span><label>如您对此精品有什么建议，欢迎顺手写下来哦！</label>
 			</div>
-
 			<div class="dr1-mid-comment">
+				<?php 
+
+					$commentList = $_SESSION['commentList'];
+				?>
 				<div class="dr1-mid-comment-title"><span>已有评论：</span></div>
 				<div>
 					<ul>
-						<li><span>颜色很好，花盆很小巧，价钱也很值，值得购买啊！</span></li>
+						<?php
+							for ($i=0; $i < count($commentList) ; $i++) { 
+								$comment = $commentList[$i];
+								$context = $comment->getContext();
+								echo "<li><span>$context</span></li>";
+							}
+						?>
+						<!--<li><span>颜色很好，花盆很小巧，价钱也很值，值得购买啊！</span></li>
 						<li><span>颜色很好，花盆很小巧，价钱也很值，值得购买啊！赶紧行动吧！</span></li>
 						<li><span>颜色很好，花盆很小巧，价钱也很值，买了送人的，她好喜欢。</span></li>
+					-->
 					</ul>
 				</div>
 				<div><button type="button" name="comment" class="btn btn-large colorr-btn" id="dr1-comment">我想评论</button></div>
 
 				<div id="dr1-comment-hidden" class="dr1-comment-hidden">
-					<form action="" method="get">
+					<form action="../controllers/commentController.php?type=addComment&id=<?php echo $goodId; ?>" method="post">
 					  <fieldset>
 					    <legend>评论内容：</legend>
 					    <!-- <label>Label name</label> -->
-					    <textarea cols="50" rows="5" ></textarea><br>
+					    <textarea cols="50" rows="5" name = "comment"></textarea><br>
 					    <button type="submit" id="dr1-submit" class="btn">保存</button><button type="reset" class="btn">重填</button>
 					  </fieldset>
 					</form>
