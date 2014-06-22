@@ -1,6 +1,7 @@
 <?php
 	include_once('../service/GoodService.php');
 	include_once('../service/CommentService.php');
+	include_once('../domain/PageClass.php');
 	
 	$type = $_REQUEST['type'];
 	$goodService = new GoodService();
@@ -39,7 +40,8 @@
         $price=$_POST['price'];
         $desc=$_POST['desc'];
         $cate=$_POST['cate'];
-        $url=$_POST['url'];
+        //$url=$_POST['url'];
+        $url = $goodService->upload($cate);
        
         $good=new Good();
         $good->setName($name);
@@ -49,10 +51,23 @@
         $good->setUrl($url);
 
         if($goodService->addGood($good)){
-        	echo "chenggong ";
+        	header("Location:./goodController.php?type=getGoodList");
 
         }else{
               echo "shibai ";
         }
+	}elseif ($type == "getGoodList") {
+		$pageBean = new PageBean();
+		$pageBean->setPageSize(5);
+		$pageBean->setPageNow(1);
+		$goodService->getAllPage($pageBean);
+		session_start();
+		$_SESSION['goodList'] = $pageBean;
+		//var_dump($pageBean);
+		header("Location:../viewBack/back-goods.php");
+	}elseif ($type == "delGood") {
+		$id =  $_REQUEST['id'];
+		$goodService->delGood($id);
+		header("Location:./goodController.php?type=getGoodList");
 	}
 ?>

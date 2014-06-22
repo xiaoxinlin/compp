@@ -1,6 +1,9 @@
-<?php
-	require_once("../domain/UserClass.php");
-	session_start();
+<?php 
+ 
+require_once("../domain/PageClass.php");
+require_once("../domain/GoodClass.php");
+require_once("../domain/UserClass.php");
+session_start();
 ?>
 <!DOCTYPE HTML >
 <html>
@@ -61,10 +64,10 @@
 							</div>
 							<div id="collapseOne" class="accordion-body in collapse" style="height: auto;">
 								<div class="accordion-inner">
-									<a href="back-customer.php">客户管理</a>
+									<a href="../controllers/UserController.php?type=getCustomers">客户管理</a>
 								</div>
 								<div class="accordion-inner">
-									<a href="back-admin.php">管理员管理</a>
+									<a href="../controllers/UserController.php?type=getAdmins">管理员管理</a>
 								</div>
 							</div>
 						</div>
@@ -72,14 +75,14 @@
 					<li>
 						<div class="accordion-group">
 							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"> <a href="back-orders.php" class="orders-a">管理订单</a> </a>
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"> <a href="../controllers/orderController.php?type=getOrders" class="orders-a">管理订单</a> </a>
 							</div>
 						</div>
 					</li>
 					<li>
 						<div class="accordion-group">
 							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree"> <a href="back-goods.php" class="goods-a">管理商品</a></a>
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree"> <a href="../controllers/goodController.php?type=getGoodList" class="goods-a">管理商品</a></a>
 							</div>
 						</div>
 					</li>
@@ -155,7 +158,35 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
+										<?php 
+											$goodLists = (object)$_SESSION['goodList'];
+											//var_dump($goods);
+											$goodList = $goodLists->getGoodList();
+											//var_dump($goodList);
+										?>
+										<?php
+											for ($i=0; $i <count($goodList) ; $i++) { 
+												$keys = array_keys ( $goodList );
+												$good = $goodList[$keys[$i]];
+												$goodId = $good->getId();
+												$goodName = $good->getName();
+												$goodPrice = $good->getPrice();
+												$goodDescription = $good->getDescription();
+												$goodCategory = $good->getCategory();
+												$goodUrl = $good->getUrl();
+												$goodNums = $good->getNums();
+												echo "<tr>";
+												echo "<td>$goodId</td>";
+												echo "<td>$goodName</td>";
+												echo "<td>$goodPrice</td>";
+												echo "<td><a href='../controllers/goodController.php?type=getGood&id=$goodId'><img src='../$goodUrl' style='width:80px;height:70px;'></a></td>";
+												
+												echo "<td><a class = 'btn' name='delete' href='../controllers/goodController.php?type=delGood&id=$goodId'>删除</a></td>";
+												echo "</tr>";
+											}
+
+										?>
+										<!-- <tr>
 											<td>112011059</td>
 											<td>江彩霞</td>
 											<td>呼呼</td>
@@ -189,7 +220,7 @@
 											<td>小锋锋</td>
 											<td>822055377@qq.com</td>
 											<td><botton type="button" name="delete-good" value="delete" class="btn">删除</button></td>
-										</tr>
+										</tr> -->
 									</tbody>
 								</table>
 							</div>
@@ -198,7 +229,7 @@
 				</div>
 
 				<button type="button" name="add-goods" value="add" class="btn add-goods"><a href="back-goods-new.php">添加商品</a></button>
-				<button type="button" name="update-goods" value="update" class="btn update-goods"><a href="back-goods-update.php">修改商品</a></button>
+				<!-- <button type="button" name="update-goods" value="update" class="btn update-goods"><a href="back-goods-update.php">修改商品</a></button> -->
 
 			</div>
 		</div>

@@ -82,7 +82,7 @@
 			<div class="back-goods-new-right">
 				<div class="goods-new-title"><span>添加商品</span></div>
 				<div class="goods-new-text">
-					<form action="../controllers/goodController.php" method="post">
+					<form action="../controllers/goodController.php?type=addGood" method="post" enctype='multipart/form-data'>
 						<ul>
 							<li>商&nbsp;&nbsp;品&nbsp;&nbsp;名：<input type="text" id="goodname" name="goodname" value="" required /></li>
 							<li>商品价格：<input type="text" id="price" name="price" value="" required /></li>
@@ -97,9 +97,8 @@
 									<option value="outdoors">户外专用</option>
 								</select>
 							</li>
-							<li>商品图像：<input type="file" id="photo" name="url" value="2"></li>
+							<li>商品图像：<input type="file" id="photo" name="file" ></li>
 							<li>
-								<li><input type="hidden" id="type" name="type" value="addGood"></li>
 								<input type="submit" name="submit" id="submit" class="btn" value="保存" />
 								<input type="reset" name="reset" id="reset" class="btn" value="重填" />
 								<a href="back-goods.php"  class="btn" name="cancel" id="cancel">取消</a>

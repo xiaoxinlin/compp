@@ -38,9 +38,9 @@ class OrderService {
 
 	//删除某个订单
 	function delOrder($id) {
-		$sql="delect from order where id='$id'";
+		$sql="delete from `order` where id='$id'";
 		$db=new DB();
-		$db=get_connection();
+		$db->get_connection();
 
 		if ($db->update($sql)) {
 			$db->close_connection();

@@ -46,7 +46,7 @@ class GoodService {
 		}
 		$start = ( $pageBean->getPageNow()-1 ) * $pageBean->getPageSize();
 		$size = $pageBean->getPageSize();
-		$sql = "select * from good limit $start ,$size";
+		$sql = "select * from good order by id  desc limit $start ,$size";
 		$result = $db->query($sql);
 		while( $row = mysql_fetch_array($result) ){
 			$good = new Good();
@@ -155,11 +155,22 @@ class GoodService {
 
 	//删除某个商品
 	function delGood($id) {
+		$sql="delete from good where id='$id'";
+		$db=new DB();
+		$db->get_connection();
 
+		if ($db->update($sql)) {
+			$db->close_connection();
+			return true;
+		}else {
+			$db->close_connection();
+			return false;
+		}
 	}
 
 	//上传文件
-	function upload(){
+	function upload($cate){
+		$url = "images/$cate/" . $_FILES["file"]["name"]; ;
 		if ((($_FILES["file"]["type"] == "image/gif")
 		|| ($_FILES["file"]["type"] == "image/jpeg")
 		|| ($_FILES["file"]["type"] == "image/pjpeg"))
@@ -176,15 +187,16 @@ class GoodService {
 		    echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
 		    echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
 
-		    if (file_exists("../images/" . $_FILES["file"]["name"]))
+		    if (file_exists("../images/$cate/" . $_FILES["file"]["name"]))
 		      {
 		      echo $_FILES["file"]["name"] . " already exists. ";
 		      }
 		    else
 		      {
 		      move_uploaded_file($_FILES["file"]["tmp_name"],
-		      "../images/" . $_FILES["file"]["name"]);
-		      echo "Stored in: " . "../images/" . $_FILES["file"]["name"];
+		      "../images/$cate/" . $_FILES["file"]["name"]);
+		      
+		      echo "Stored in: " . "../images/$cate/" . $_FILES["file"]["name"];
 		      }
 		    }
 		  }
@@ -192,6 +204,7 @@ class GoodService {
 		  {
 		  echo "Invalid file";
 		  }
+		  return $url;
 	}
 
 

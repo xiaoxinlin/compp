@@ -70,7 +70,7 @@
 					<li>
 						<div class="accordion-group">
 							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree"> <a href="back-goods.php" class="goods-a">管理商品</a></a>
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree"> <a href="../controllers/goodController.php?type=getGoodList" class="goods-a">管理商品</a></a>
 							</div>
 						</div>
 					</li>
