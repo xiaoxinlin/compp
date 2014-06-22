@@ -1,3 +1,7 @@
+<?php
+	require_once("../domain/UserClass.php");
+	session_start();
+?>
 <!DOCTYPE HTML >
 <html>
 	<head>
@@ -28,15 +32,26 @@
 			<div class="back-logo"><a href="../index.php"><img src="../images/logo3.png" width='50px' height='50px'></a></div>
 			<div class="back-header-title"><span>创意家居小精品购物网站后台管理</span></div>
 			<div class="back-header-right">
-				<span>管理员：</span><span>江彩霞</span>
-				<a href="">注销</a>
+				<?php 
+							$user = 0;
+							if(isset($_SESSION['user'])){
+								$user = $_SESSION['user'];
+							}
+							
+							if($user){
+								//var_dump($user);
+								$userName = $user->getNickname();
+								echo "<span>管理员：</span><span>$userName</span>";
+							}
+				?>
+				<a href="../controllers/UserController.php?type=logout">注销</a>
 			</div>
 		</div>
 		
 
 		<!-- 中间 -->
 		<div class="back-left">
-			<div class="back-left-img"><img src="../images/back/p2.jpg"><br><span>小呼呼</span></div>
+			<div class="back-left-img"><img src="../images/back/p2.jpg"><br><span><?php echo $userName;?></span></div>
 			<div class="back-left-nav">
 				<ul>
 					<li>

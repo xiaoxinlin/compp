@@ -6,6 +6,34 @@ class OrderService {
 	//获取全部订单信息
 	function getOrders() {
 
+		$db = new DB();
+		$db->get_connection();
+
+		//将用户的id号和用户名保存到一个索引数组中，$id => $username
+		$sql = "select id,name from user where id in (select distinct uid from `order` )";
+		$result = $db->query($sql);
+		$user = array();
+		while ($row = mysql_fetch_array($result)) {
+			$user[$row['id']] = $row['name'];
+		}
+		//将订单保存在数组列表中
+		$sql = "select * from `order`";
+		$result = $db->query($sql);
+		$array = array();
+		while ($row = mysql_fetch_array($result)) {
+			$order = new Order();
+			$order->setId($row['id']);
+
+			//这里将userId转换成username
+			$order->setUid($user[$row['uid']]);
+
+			$order->setGoods($row['goods']);
+			$order->setTotalprice($row['totalprice']);
+			$array[] = $order;
+		}
+
+		$db->close_connection();
+		return $array;
 	}
 
 	//删除某个订单

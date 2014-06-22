@@ -19,7 +19,7 @@
 			$good = $goodList[$keys[$i]];
 			$goodId = $good->getId();
 			$goodNums = $good->getNums();
-			$goods = $goods ."$goodId:$goodNums#";
+			$goods = $goods ."gid:$goodId,nums:$goodNums#";
 		}
 		$order->setGoods($goods);
 
@@ -32,5 +32,11 @@
 		$goodList = array();
 		$cart->setGoodList($goodList);
 		header("Location:../view/submitOrder.php");
+	}elseif ($type == "getOrders") {
+		//获取订单列表
+		$result = $orderService->getOrders();
+		$_SESSION [ 'allOrders' ] =  $result;
+		//var_dump($result);
+		header("Location:../viewBack/back-orders.php");
 	}
 ?>
