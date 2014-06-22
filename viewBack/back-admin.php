@@ -1,3 +1,7 @@
+<?php 
+	include_once("../domain/UserClass.php");
+	session_start();
+?>
 <!DOCTYPE HTML >
 <html>
 	<head>
@@ -37,10 +41,10 @@
 							</div>
 							<div id="collapseOne" class="accordion-body in collapse" style="height: auto;">
 								<div class="accordion-inner">
-									<a href="back-customer.php">客户管理</a>
+									<a href="../controllers/UserController.php?type=getCustomers">客户管理</a>
 								</div>
 								<div class="accordion-inner">
-									<a href="back-admin.php">管理员管理</a>
+									<a href="../controllers/UserController.php?type=getAdmins">管理员管理</a>
 								</div>
 							</div>
 						</div>
@@ -72,7 +76,7 @@
 							<div class="span12">
 								<ul class="breadcrumb">
 									<li>
-										<a href="../index.php">管理用户</a> <span class="divider">/</span>
+										<a href="../controllers/UserController.php?type=getCustomers">管理用户</a> <span class="divider">/</span>
 									</li>
 									<li class="active">管理员管理</li>								
 								</ul>
@@ -94,7 +98,22 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
+									<?php
+											
+										
+										$allCustomers = $_SESSION['allAdmins'];
+										foreach ($allCustomers as $user) {
+											echo "<tr>";
+											echo "<td>$user->id</td>";
+											echo "<td>$user->name</td>";
+											echo "<td>$user->nickname</td>";
+											echo "<td>$user->email</td>";
+											echo "<td><botton type='button' name='delete-customer' value='delete' class='btn'>删除</button></td>";
+											echo "</tr>";
+										}
+										//unset($_SESSION['allCustomers']);
+									?>
+									<!-- <tr>
 										<td>112011059</td>
 										<td>江彩霞2</td>
 										<td>呼呼</td>
@@ -128,7 +147,7 @@
 										<td>小锋锋</td>
 										<td>822055377@qq.com</td>
 										<td><botton type="button" name="delete-admin" value="delete" class="btn">删除</button></td>
-									</tr>
+									</tr> -->
 								</tbody>
 							</table>
 						</div>

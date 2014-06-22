@@ -95,6 +95,20 @@ class UserService {
 		$db = new DB();
 		$db->get_connection();
 		$result = $db->query($sql);
+
+		$array = array();
+		while ($row = mysql_fetch_array($result)) {
+			$user = new User();
+			$user->id = $row['id'];
+			$user->name = $row['name'];
+			$user->nickname = $row['nickname'];
+			$user->email = $row['email'];
+			$array[] = $user;
+
+		}
+
+		$db->close_connection();
+		return $array;
 		
 
 	}

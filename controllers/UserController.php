@@ -2,6 +2,7 @@
 include_once("../service/UserService.php");
 include_once("../domain/UserClass.php");
 header("Content-type: text/html; charset=utf-8");
+session_start();
 
 $userService = new UserService();
 $type = $_REQUEST['type'];
@@ -40,14 +41,19 @@ if($type == 'addUser') {
 	//获取客户信息列表
 	//获得客户列表	2014年6月15日 16:42:37 xiaoxin
 	$result = $userService->getCustomers();
-	session_start();
+	
 	$_SESSION [ 'allCustomers' ] =  $result;
 	//var_dump($result);
 	header("Location:../viewBack/back-customer.php");
 }else if($type == 'logout'){
-	session_start();
 	session_destroy();
 	header("Location:../view/login.php");
+}else if($type == 'getAdmins'){
+	//获取管理员列表
+	$result = $userService->getAdmins();
+	$_SESSION [ 'allAdmins' ] =  $result;
+	//var_dump($result);
+	header("Location:../viewBack/back-admin.php");
 }
 
 

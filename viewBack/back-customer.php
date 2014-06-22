@@ -1,3 +1,7 @@
+<?php 
+	include_once("../domain/UserClass.php");
+	session_start();
+?>
 <!DOCTYPE HTML >
 <html>
 	<head>
@@ -37,10 +41,10 @@
 							</div>
 							<div id="collapseOne" class="accordion-body in collapse" style="height: auto;">
 								<div class="accordion-inner">
-									<a href="back-customer.php">客户管理</a>
+									<a href="../controllers/UserController.php?type=getCustomers">客户管理</a>
 								</div>
 								<div class="accordion-inner">
-									<a href="back-admin.php">管理员管理</a>
+									<a href="../controllers/UserController.php?type=getAdmins">管理员管理</a>
 								</div>
 							</div>
 						</div>
@@ -72,7 +76,7 @@
 							<div class="span12">
 								<ul class="breadcrumb">
 									<li>
-										<a href="../index.php">管理用户</a> <span class="divider">/</span>
+										<a href="../controllers/UserController.php?type=getCustomers">管理用户</a> <span class="divider">/</span>
 									</li>
 									<li class="active">客户管理</li>								
 								</ul>
@@ -96,8 +100,7 @@
 								<tbody>
 
 									<?php
-										include_once("../domain/UserClass.php");
-										session_start();	
+											
 										
 										$allCustomers = $_SESSION['allCustomers'];
 										foreach ($allCustomers as $user) {
