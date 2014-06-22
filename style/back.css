@@ -238,7 +238,7 @@ body {
 /*back-goods*/
 
 .back-goods-right {
-	width:860px;
+	width:850px;
 	padding:0px 0px 10px 0px;
 	float:left;
 	margin-top:40px;
@@ -273,29 +273,20 @@ body {
 .back-goods-right .goods-text {
 	width:838px;
 	float: left;
-	padding:20px 10px 10px 10px;
+	padding:20px 10px 10px 0px;
 	border:1px solid #DEDEDE;
 	/*border:1px solid blue;*/
 }
-
-.back-goods-right .goods-text ul {
-	padding: 0px;
-	margin: 0px;
-	float: left;
+.back-goods-right .goods-text table {
+	border-bottom: 1px solid #DDDDDD;
 }
-.back-goods-right .goods-text li {
-	list-style: none;
-	float: left;
-	margin-bottom: 15px;
+.back-goods-right .goods-text table thead {
+	/*background-color: #DEDEDE;*/
+	color:gray;
 }
-
-.back-goods-right .goods-text li img {
+.back-goods-right .goods-text table tbody img {
 	width:150px;
-	height: 150px;
-	margin-left: 10px;
-}
-.back-goods-right .goods-text li button {
-	margin-left: 10px;
+	height:100px;
 }
 .back-goods-right .add-goods {
 	margin-top: 20px;

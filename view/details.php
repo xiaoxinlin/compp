@@ -32,10 +32,12 @@
 		<!-- 头部 -->
 		<div class="all-header">
 			<div class="all-logo"><a href="../index.php"><img src="../images/logo3.png" width='50px' height='50px'></a></div>
-			<div class="all-query">
-				<input type="query"  class="all-text" value="" placeholder="搜 搜 就 有 啦 O(∩_∩)O~">
-				<input type="submit" class="all-btn" value="搜  索"></button>
-			</div>
+			<form action="../controllers/goodController.php?type=findGoods&pageNow=1" method="post">
+					<div class="all-query">
+						<input type="query"  class="all-text" value="" placeholder="搜 搜 就 有 啦 O(∩_∩)O~">
+						<input type="submit" class="all-btn" value="搜  索"></button>
+					</div>
+				</form>
 			<div class="all-header-right">
 				<?php 
 							$user = 0;
@@ -65,14 +67,15 @@
 
 			<div class="dr1-mid-upright">
 				<ul>
-					<li><span><?php echo "$goodName  ————  $goodDescription"; ?></span></li>
+					<li><span><?php echo "$goodName"; ?></span></li>
+					<li><span><?php echo "$goodDescription"; ?></span></li>
 					<li><span class="dr1-mid-price">原&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价 ：</span><span class="dr1-mid-yuanjia">￥<?php echo $goodPrice;?></span></li>
 					<li><span class="dr1-mid-price">折&nbsp;&nbsp;&nbsp;后&nbsp;&nbsp;&nbsp;价 ：</span><span class="dr1-mid-yuan">￥</span><span class="dr1-mid-zhejia"><?php echo $goodPrice*0.9;?></span></li>
-					<li><span class="dr1-mid-price">数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量 ：</span>
+					<!-- <li><span class="dr1-mid-price">数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量 ：</span>
 						<span id="btn-increase" class="btn btn-mini dr1-btn-increase">∧</span>
 						<input id="nums" type="text" max-size="50" value='1'>
 						<span id="btn-decrease" class="btn btn-mini dr1-btn-decrease">∨</span>
-					</li>
+					</li> -->
 					<li><span class="dr1-mid-buy"><a onclick="getNums()" href="../controllers/cartController.php?type=addGood&id=<?php echo $goodId;?>">加入购物车</a></span></li>
 				</ul>
 				<!--<ul>

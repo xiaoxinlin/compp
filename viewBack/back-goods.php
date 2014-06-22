@@ -141,19 +141,60 @@
 					</div>
 				</div>
 				<div class="goods-text">
-					<ul>
-						<li><img src="../images/bedroom/b1.jpg"><br><button name="delete-goods" value="delete" class="btn btn-mini">删除</button></li>
-						<li><img src="../images/bedroom/b2.jpg"><br><button name="delete-goods" value="delete" class="btn btn-mini">删除</button></li>
-						<li><img src="../images/bedroom/b3.jpg"><br><button name="delete-goods" value="delete" class="btn btn-mini">删除</button></li>
-						<li><img src="../images/bedroom/b4.jpg"><br><button name="delete-goods" value="delete" class="btn btn-mini">删除</button></li>
-						<li><img src="../images/bedroom/b5.jpg"><br><button name="delete-goods" value="delete" class="btn btn-mini">删除</button></li>
-
-						<li><img src="../images/bedroom/b7.jpg"><br><button name="delete-goods" value="delete" class="btn btn-mini">删除</button></li>
-						<li><img src="../images/bedroom/b8.jpg"><br><button name="delete-goods" value="delete" class="btn btn-mini">删除</button></li>
-						<li><img src="../images/bedroom/b9.jpg"><br><button name="delete-goods" value="delete" class="btn btn-mini">删除</button></li>
-						<li><img src="../images/bedroom/b10.jpg"><br><button name="delete-goods" value="delete" class="btn btn-mini">删除</button></li>
-						<li><img src="../images/bedroom/b11.jpg"><br><button name="delete-goods" value="delete" class="btn btn-mini">删除</button></li>
-					</ul>
+					<div class="container-fluid">
+						<div class="row-fluid">
+							<div class="span12">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>商品编号</th>
+											<th>商品名称</th>
+											<th>商品单价</th>
+											<th>商品缩略图</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>112011059</td>
+											<td>江彩霞</td>
+											<td>呼呼</td>
+											<td><img src="../images/drawing/dr1.jpg"></td>
+											<td><botton type="button" name="delete-good" value="delete" class="btn">删除</button></td>
+										</tr>
+										<tr>
+											<td>112011059</td>
+											<td>何业文</td>
+											<td>荷叶</td>
+											<td>822055377@qq.com</td>
+											<td><botton type="button" name="delete-good" value="delete" class="btn">删除</button></td>
+										</tr>
+										<tr>
+											<td>112011059</td>
+											<td>林晓鑫</td>
+											<td>蜡笔小新</td>
+											<td>822055377@qq.com</td>
+											<td><botton type="button" name="delete-good" value="delete" class="btn">删除</button></td>
+										</tr>
+										<tr>
+											<td>112011059</td>
+											<td>廖坤城</td>
+											<td>体委</td>
+											<td>822055377@qq.com</td>
+											<td><botton type="button" name="delete-good" value="delete" class="btn">删除</button></td>
+										</tr>
+										<tr>
+											<td>112011059</td>
+											<td>刘志锋</td>
+											<td>小锋锋</td>
+											<td>822055377@qq.com</td>
+											<td><botton type="button" name="delete-good" value="delete" class="btn">删除</button></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
 				</div>
 
 				<button type="button" name="add-goods" value="add" class="btn add-goods"><a href="back-goods-new.php">添加商品</a></button>

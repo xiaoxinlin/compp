@@ -95,7 +95,6 @@
 	float:left;
 	font-size: 14px;
 	margin-top: 5px;
-
 }
 .dr1-mid-up .dr1-mid-upright .dr1-mid-yuanjia {
 	color:#888888;
@@ -114,10 +113,10 @@
 	font-weight: bold;
 }
 
-.dr1-mid-up .dr1-mid-upright .dr1-btn-increase {
+/*.dr1-mid-up .dr1-mid-upright .dr1-btn-increase {
 	margin-right: 5px;
 	margin-left: 25px;
-	/*border:1px solid red;*/
+	border:1px solid red;
 }
 .dr1-mid-up .dr1-mid-upright li input {
 	width:50px;
@@ -125,8 +124,8 @@
 	margin-top: 10px;
 }
 .dr1-mid-up .dr1-mid-upright .dr1-btn-decrease {
-	/*border:1px solid red;*/
-}
+	border:1px solid red;
+}*/
 
 .dr1-mid-up .dr1-mid-upright .dr1-mid-buy {
 	width:150px;

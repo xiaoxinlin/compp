@@ -19,10 +19,12 @@
 		<div class = "container">
 			<div class="row" style="border-bottom: 5px solid #65B600;">
 				<div class="all-logo "><a href="../index.php"><img src="../images/logo3.png" width='50px' height='50px'></a></div>
-				<div class="all-query">
-					<input type="query"  class="all-text" value="" placeholder="搜 搜 就 有 啦 O(∩_∩)O~">
-					<input type="submit" class="all-btn" value="搜  索"></button>
-				</div>
+				<form action="../controllers/goodController.php?type=findGoods&pageNow=1" method="post">
+					<div class="all-query">
+						<input type="query"  class="all-text" value="" placeholder="搜 搜 就 有 啦 O(∩_∩)O~">
+						<input type="submit" class="all-btn" value="搜  索"></button>
+					</div>
+				</form>
 			</div>
 			<div class = 'row offset4'>
 				<h1>成功提交订单 <small>欢迎下次购买</small> </h1>
