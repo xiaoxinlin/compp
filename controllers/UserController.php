@@ -31,8 +31,11 @@ if($type == 'addUser') {
 	if($userService->addUser($user)){
 		$id = $userService->getUserId($name);
 		//var_dump($id);
+		if($user->authority==customer){
 		header("Location:../view/login.php?id=$id");
+	  }else if($user->authority==admin)
 		//header("Location:../view/register.php?id='$id'");
+	    header("Location:../viewBack/back-login.php?id=$id");
 
 	}else{
 		header("Location:../view/register.php?register_message=errordb");
@@ -60,6 +63,16 @@ if($type == 'addUser') {
 	$_SESSION [ 'allAdmins' ] =  $result;
 	//var_dump($result);
 	header("Location:../viewBack/back-admin.php");
+}
+else if($type=='delUser'){
+    $userId = $_REQUEST['id'];
+    var_dump( $userId );
+    if($userService->delUser($userId)){
+    	echo "successful";
+    }else{
+    	echo "fail";
+    }
+
 }
 
 

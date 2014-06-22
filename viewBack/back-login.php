@@ -12,14 +12,21 @@
 		<title>创意家居小精品购物网站后台登录</title>
 
 		<script>
+			
 			<?php 
-				$error = $_GET['back_login_message'];
-				if(isset($error)){
+				
+				
+				if(isset($_GET['login_message'])){
+					$error = $_GET['login_message'];
 					if($error == 'error1'){
 						echo "alert('用户名或密码错误！！');";
 					}else if($error == 'error2'){
-						echo "alert('请使用管理员帐号登录！！');";
+						echo "alert('请使用用户帐号登录！！');";
 					}
+				}else if( isset($_GET['id']) ){
+					$id = $_GET['id'];
+					$message = "你注册的ID号是$id";
+					echo "alert('$message');";
 				}
 			?>
 			

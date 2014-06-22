@@ -97,7 +97,25 @@ class GoodService {
 	}
 
 	//添加商品
-	function addGood() {
+	function addGood($good) {
+		$goodname=$good->getName();
+		$goodprice=$good->getPrice();
+		$gooddesc=$good->getDescription();
+		$goodcate=$good->getCategory();
+		$goodurl=$good->getUrl();
+		$sql="insert into good(name,price,description,category,url)values('$goodname','$goodprice','$gooddesc','$goodcate','$goodurl');";
+
+        $db=new DB();
+        $db->get_connection();
+
+		if ($db->update($sql)) {
+			$db->close_connection();
+			return true;
+		}else {
+			$db->close_connection();
+			return false;
+		}
+
 
 	}
 

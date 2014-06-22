@@ -38,6 +38,17 @@ class OrderService {
 
 	//删除某个订单
 	function delOrder($id) {
+		$sql="delect from order where id='$id'";
+		$db=new DB();
+		$db=get_connection();
+
+		if ($db->update($sql)) {
+			$db->close_connection();
+			return true;
+		}else {
+			$db->close_connection();
+			return false;
+		}
 		
 	}
 	//增加订单

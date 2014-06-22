@@ -66,6 +66,8 @@ class UserService {
 	
 	}
 
+
+
 	//获取全部客户信息
 	function getCustomers() {
 		$sql = "select id,name,nickname,email from user where authority='customer'";
@@ -115,7 +117,19 @@ class UserService {
 
 	//删除一个
 	function delUser($userId) {
+
+		$sql="delete from user where id='$userId'";
+		$db=new DB();
+		$db->get_connection();
+
 		
+		if ($db->update($sql)) {
+			$db->close_connection();
+			return true;
+		}else {
+			$db->close_connection();
+			return false;
+		}
 	}
 
 }

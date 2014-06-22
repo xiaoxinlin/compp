@@ -25,7 +25,7 @@
 		//var_dump($good);
 		//var_dump($commentList);
 		header("Location:../view/details.php");
-	}elseif ($type == "findGoods") {
+	}else if ($type == "findGoods") {
 		$keyword = $_REQUEST['keyword'];
 		$pageNow = $_REQUEST['pageNow'];
 		$pageBean = $goodService->findGoods($pageNow,$keyword);
@@ -33,5 +33,26 @@
 		$_SESSION['goods'] = $pageBean;
 		//var_dump($pageBean);
 		header("Location:../view/goodScan.php");
+	}else if($type=="addGood"){
+        //获取商品的信息
+        $name = $_POST['goodname'];
+        $price=$_POST['price'];
+        $desc=$_POST['desc'];
+        $cate=$_POST['cate'];
+        $url=$_POST['url'];
+       
+        $good=new Good();
+        $good->setName($name);
+        $good->setPrice($price);
+        $good->setDescription($desc);
+        $good->setCategory($cate);
+        $good->setUrl($url);
+
+        if($goodService->addGood($good)){
+        	echo "chenggong ";
+
+        }else{
+              echo "shibai ";
+        }
 	}
 ?>

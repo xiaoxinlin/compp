@@ -83,13 +83,15 @@
 			<div class="back-admin-new-right">
 				<div class="admin-new-title"><span>添加管理员</span></div>
 				<div class="admin-new-text">
-					<form action="" method="post">
+					<form action="../controllers/UserController.php" method="post">
+
 						<ul>
-							<li>用户名：<input type="text" id="username" name="username" value="" required /></li>
+							<li>用户名：<input type="text" id="username" name="name" value="" required /></li>
 							<li>昵&nbsp;&nbsp;&nbsp;称：<input type="text" id="nickname" name="nickname" value="" required /></li>
 							<li>密&nbsp;&nbsp;&nbsp;码：<input type="password" id="password" name="password" value="" required /></li>
 							<li>邮&nbsp;&nbsp;&nbsp;件：<input type="email" id="email" name="email" value="" required /></li>
 							<li><input type="hidden" id="authority" name="authority" value="admin"></li>
+							<li><input type="hidden" id="type" name="type" value="addUser"></li>
 							<li>
 								<input type="submit" name="submit" id="submit" class="btn" value="保存" />
 								<input type="reset" name="reset" id="reset" class="btn" value="重填" />
